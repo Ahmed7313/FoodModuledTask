@@ -23,7 +23,7 @@ fun CategoryScreen(
     viewModel: CategoryViewModel = hiltViewModel()
 ){
     val listOfCategories by remember { viewModel.listOfCategories }
-    
+
     LazyColumn{
         items(listOfCategories){ item ->
             SingleCategoryItem(category = item)
