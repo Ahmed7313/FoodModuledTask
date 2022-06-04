@@ -2,9 +2,11 @@ package com.example.extendtaskfoodapp.DI
 
 import com.example.extendtaskfoodapp.datasource.CategoryRepository
 import com.example.extendtaskfoodapp.datasource.ICategoryRepository
-import com.example.extendtaskfoodapp.datasource.usecase.GetCategoriesUseCase
-import com.example.extendtaskfoodapp.datasource.usecase.IGetCategoriesUseCase
+import com.example.extendtaskfoodapp.datasource.repository.DishRepository
+import com.example.extendtaskfoodapp.datasource.repository.IDishRepository
+import com.example.extendtaskfoodapp.datasource.usecase.*
 import com.example.extendtaskfoodapp.serviece.ICategoryService
+import com.example.extendtaskfoodapp.serviece.IDishService
 import dagger.Binds
 import dagger.Module
 import dagger.Provides
@@ -35,6 +37,13 @@ class AppModule{
     fun providesCategoryService(retrofit: Retrofit) : ICategoryService{
         return retrofit.create(ICategoryService::class.java)
     }
+
+    @Provides
+    @Singleton
+    fun provideMealService(retrofit: Retrofit): IDishService {
+        return retrofit.create(IDishService::class.java)
+    }
+
     @Module
     @InstallIn(SingletonComponent::class)
     interface AppModuleInt {
@@ -46,6 +55,14 @@ class AppModule{
         @Binds
         @Singleton
         fun provideGetCategoryUseCase(uc: GetCategoriesUseCase): IGetCategoriesUseCase
+
+        @Binds
+        @Singleton
+        fun provideMealRepository(repo: DishRepository): IDishRepository
+
+        @Binds
+        @Singleton
+        fun provideDishUseCase(uc: GetDishUseCase): IDishesUseCase
     }
 
 

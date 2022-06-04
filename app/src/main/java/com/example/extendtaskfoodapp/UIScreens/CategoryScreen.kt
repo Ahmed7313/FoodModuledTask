@@ -2,6 +2,7 @@ package com.example.extendtaskfoodapp.UIScreens
 
 import android.widget.Space
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
@@ -20,22 +21,29 @@ import com.example.extendtaskfoodapp.model.Category
 
 @Composable
 fun CategoryScreen(
-    viewModel: CategoryViewModel = hiltViewModel()
+    viewModel: CategoryViewModel = hiltViewModel(),
+    onItemClicked : (String) -> Unit
 ){
     val listOfCategories by remember { viewModel.listOfCategories }
 
     LazyColumn{
         items(listOfCategories){ item ->
-            SingleCategoryItem(category = item)
+            SingleCategoryItem(category = item){
+                 onItemClicked(it)
+            }
         }
     }
 }
 
 @Composable
 fun SingleCategoryItem (
-    category: Category
+    category: Category,
+    onclick : (String) -> Unit
 ){
-    Card(modifier = Modifier.padding(8.dp).fillMaxWidth(), elevation = 8.dp,) {
+    Card(modifier = Modifier.padding(8.dp)
+        .fillMaxWidth()
+        .clickable { onclick(category.strCategory) },
+        elevation = 8.dp) {
         Row (modifier = Modifier.padding(16.dp)){
             Image(
                 modifier = Modifier.size(80.dp),
