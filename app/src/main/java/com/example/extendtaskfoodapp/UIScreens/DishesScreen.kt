@@ -7,6 +7,7 @@ import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Card
+import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.DisposableEffect
@@ -29,6 +30,9 @@ fun DishesScreen(
     viewModel: DishViewModel = hiltViewModel(),
     category : String?
 ) {
+
+    //val viewModel = getViewModel<DishViewModel>()
+    //val viewModel : DishViewModel by viewModel()
 
     DisposableEffect(key1 = Unit){
         if (!category.isNullOrBlank()){

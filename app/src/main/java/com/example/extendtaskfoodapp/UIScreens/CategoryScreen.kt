@@ -18,18 +18,21 @@ import coil.compose.rememberAsyncImagePainter
 import coil.compose.rememberImagePainter
 import com.example.extendtaskfoodapp.datasource.viewmodel.CategoryViewModel
 import com.example.extendtaskfoodapp.model.Category
+import org.koin.android.compat.ViewModelCompat
 
 @Composable
 fun CategoryScreen(
     viewModel: CategoryViewModel = hiltViewModel(),
     onItemClicked : (String) -> Unit
 ){
+//    val viewModel = ViewModelCompat.getViewModel<CategoryViewModel>()
+//    val viewModel : CategoryViewModel by viewModel()
     val listOfCategories by remember { viewModel.listOfCategories }
 
     LazyColumn{
         items(listOfCategories){ item ->
-            SingleCategoryItem(category = item){
-                 onItemClicked(it)
+            SingleCategoryItem(category = item){ category ->
+                 onItemClicked(category)
             }
         }
     }

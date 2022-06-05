@@ -24,9 +24,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.extendtaskfoodapp.R
-import com.example.extendtaskfoodapp.ui.theme.Red300
-import com.example.extendtaskfoodapp.ui.theme.Red700
-import com.example.extendtaskfoodapp.ui.theme.Red800
+import com.example.extendtaskfoodapp.ui.theme.*
 import com.example.myapplication.ui.theme.LoginAppComposeSmaatTheme
 
 
@@ -39,7 +37,7 @@ fun Greeting2(name: String) {
 @Composable
 fun DefaultPreview2() {
     LoginAppComposeSmaatTheme {
-        loginFullView(modifier = Modifier.fillMaxSize())
+        LoginScreen(modifier = Modifier.fillMaxSize())
     }
 }
 
@@ -157,7 +155,7 @@ fun LoginButton (text : String){
             .height(100.dp)
             .padding(16.dp),
         shape = RoundedCornerShape(8.dp),
-        colors = ButtonDefaults.buttonColors(backgroundColor = Red700) ) {
+        colors = ButtonDefaults.buttonColors(backgroundColor = BtnColor) ) {
         Text(text = text,
             fontSize = 24.sp,
             fontWeight = FontWeight.Bold,
@@ -169,18 +167,18 @@ fun LoginButton (text : String){
 }
 
 @Composable
-fun loginFullView(modifier: Modifier){
+fun LoginScreen(modifier: Modifier){
 
     Column (modifier =
     Modifier
-        .background(color = Red800)
+        .background(color = MainColor)
         .fillMaxWidth()
         .fillMaxHeight()){
         Greeting2()
         Card(
             Modifier.fillMaxSize(),
             elevation = 4.dp,
-            backgroundColor = Red700,
+            backgroundColor = SpacerColor,
             shape = RoundedCornerShape(
                 topStart = 24.dp,
                 topEnd = 24.dp)

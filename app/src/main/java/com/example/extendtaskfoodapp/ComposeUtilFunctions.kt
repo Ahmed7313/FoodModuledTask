@@ -31,6 +31,7 @@ import androidx.compose.ui.text.input.VisualTransformation
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.example.extendtaskfoodapp.ui.theme.BtnColor
 import com.example.extendtaskfoodapp.ui.theme.Red700
 import com.example.extendtaskfoodapp.ui.theme.Red800
 import com.example.myapplication.ui.theme.LoginAppComposeSmaatTheme
@@ -75,13 +76,13 @@ fun Greeting(firstText : String, secText : String) {
 }
 
 @Composable
-fun LoginRegisterButton (text : String){
-    OutlinedButton(onClick = { /*TODO*/ },
+fun LoginRegisterButton (text : String, onClick : () -> Unit){
+    OutlinedButton(onClick = { onClick },
         modifier = Modifier
             .fillMaxWidth(1f)
             .height(68.dp)
             .padding(top = 4.dp, end = 16.dp, start = 16.dp, bottom = 4.dp),
-        colors = ButtonDefaults.buttonColors(backgroundColor = Red700),
+        colors = ButtonDefaults.buttonColors(backgroundColor = BtnColor),
         shape = RoundedCornerShape(8.dp)
     ) {
         Text(text = text,
@@ -195,7 +196,7 @@ fun DefaultPreview3() {
         Column(horizontalAlignment = Alignment.CenterHorizontally,
             modifier = Modifier.background(color = Red800)) {
             Greeting("Welcome", "Back...!")
-            LoginRegisterButton("Login")
+            //LoginRegisterButton("Login")
             PasswordField()
         }
     }
