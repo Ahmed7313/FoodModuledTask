@@ -16,8 +16,8 @@ import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
 import coil.compose.rememberAsyncImagePainter
 import coil.compose.rememberImagePainter
+import com.example.domain.model.Category
 import com.example.extendtaskfoodapp.datasource.viewmodel.CategoryViewModel
-import com.example.extendtaskfoodapp.model.Category
 import org.koin.android.compat.ViewModelCompat
 
 @Composable

@@ -5,8 +5,9 @@ import androidx.compose.runtime.State
 import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.extendtaskfoodapp.datasource.usecase.IDishesUseCase
-import com.example.extendtaskfoodapp.model.Dish
+import com.example.domain.model.Dish
+import com.example.domain.useCase.IDishesUseCase
+
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import javax.inject.Inject
