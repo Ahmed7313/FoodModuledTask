@@ -14,3 +14,6 @@ dependencyResolutionManagement {
 }
 rootProject.name = "Extend Task Food App"
 include ':app'
+include ':domain'
+include ':data'
+include ':common'

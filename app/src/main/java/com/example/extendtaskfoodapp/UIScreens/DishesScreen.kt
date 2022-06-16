@@ -22,8 +22,8 @@ import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.extendtaskfoodapp.datasource.viewmodel.DishViewModel.ViewState
 import androidx.hilt.navigation.compose.hiltViewModel
 import coil.compose.rememberImagePainter
+import com.example.domain.model.Dish
 import com.example.extendtaskfoodapp.datasource.viewmodel.DishViewModel
-import com.example.extendtaskfoodapp.model.Dish
 
 @Composable
 fun DishesScreen(
@@ -53,6 +53,9 @@ fun DishesScreen(
         }
         is ViewState.Error -> {
             Text(text = "Error ${state.errorMessage}")
+        }
+        ViewState.Loading -> {
+
         }
     }
 
